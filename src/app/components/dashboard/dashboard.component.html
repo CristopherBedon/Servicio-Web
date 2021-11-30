@@ -1,0 +1,73 @@
+<!--MENÚ DASHBOARD-->
+<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <div class="logo"><a href="dashboard.html">
+                <span>Firebase</span></a>
+                </div>
+                <li class="label">Main</li>
+                <li>
+                    <a class="sidebar-sub-toggle">
+                        <i class="ti-home"></i>
+                        Inicio
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--END MENÚ DASHBOARD-->
+
+
+<!--HEADER-->
+<div class="header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <!--Menú que se despliega-->
+                <div class="float-left">
+                    <div class="hamburger sidebar-toggle">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+                <!---->
+                <div class="float-right">
+                    <!--PROFILE-->
+                    <div class="dropdown dib" *ngIf="userLogged|async as user">
+                        <div class="header-icon" data-toggle="dropdown">
+                            <img *ngIf="user.photoURL" src="{{user.photoURL}}" style="border-radius: 100%;" width="30" height="30"
+                            class="d-inline-block align-top" alt="">
+                            <span class="user-avatar ml-2">{{user.email}}
+                                <i class="ti-angle-down f-s-10"></i>
+                            </span>
+                            <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
+                                
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li>
+                                            <button class="btn btn-danger" style="margin-left: 40px;" (click)="logout()">
+                                                    <i class="ti-power-off"></i>
+                                                    <span>Logout</span>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--END PROFILE-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END HEADER-->
+
+<h1 class="text-center mt-2" style="margin-left: 10%; color: #17a2b8;">CRUD DE EMPLEADOS</h1>
+
+<app-create-empleados></app-create-empleados>
+<app-list-empleados></app-list-empleados>
+
