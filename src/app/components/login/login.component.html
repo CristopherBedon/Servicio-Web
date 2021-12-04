@@ -3,24 +3,40 @@
       <div class="row justify-content-center">
         <div class="col-lg-6">
           <div class="login-content">
-            <div class="login-form">
+            <div class="login-form" [formGroup]="loginForm">
               <h4>Login</h4>
               <div class="form-group">
                 <label>Email address</label>
-                <input type="email" class="form-control" placeholder="Email" [(ngModel)]="usuario.email">
+                <input type="email" class="form-control" formControlName="email" placeholder="example@mail.com" [(ngModel)]="usuario.email">
+                <div *ngIf="submitted && loginForm.controls.email.errors" class="invalid">
+                  <div *ngIf="loginForm.controls.email.errors.required">
+                      Campo vacío
+                  </div>
+                  <div *ngIf="submitted && loginForm.controls.email.errors.pattern">
+                    example@mail.com
+                  </div>
+                </div>
               </div>
               <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control" placeholder="Password" [(ngModel)]="usuario.password">
+                <input type="password" class="form-control" formControlName="password" placeholder="Password" [(ngModel)]="usuario.password" required>
+                <div *ngIf="submitted && loginForm.controls.password.errors" class="invalid">
+                  <div *ngIf="loginForm.controls.password.errors.required">
+                    Campo vacío
+                  </div>
+                  <div *ngIf="submitted && loginForm.controls.password.errors.pattern">
+                    Debe insertar entre 4 a 8 números
+                  </div>
+                </div>
               </div>
               <button class="btn btn-primary btn-flat m-b-30 m-t-20" (click)="ingresar()">Sign In</button>
               <div class="social-login-content">
                 <div class="social-button">
                   <button type="button" class="btn btn-danger bg-twitter btn-flat btn-addon m-t-10 mb-2" (click)="ingresarConGoogle()">
                     <i class="ti-google"></i>Ingresar con Google</button>
-                  <button type="button" class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10" style="background-color: #3b5998;"
+                  <!--<button type="button" class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10" style="background-color: #3b5998;"
                   (click)="ingresarConFacebook()">
-                    <i class="ti-facebook"></i>Ingresar con Facebook</button>
+                    <i class="ti-facebook"></i>Ingresar con Facebook</button>-->
                 </div>
               </div>
               <div class="register-link m-t-15 text-center">

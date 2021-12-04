@@ -25,7 +25,7 @@ export class RegistrarComponent implements OnInit {
     this.authService.register(email,password).then(res => {
       console.log("Se registro: " , res);
     })
-    alert("Se registró el Usuario: " + email);
+    alert("Se registró el Usuario: " + email + "\n Por favor. Verifique su correo antes de iniciar sesión");
     this.router.navigate(['/login']);
   }
 
