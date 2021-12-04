@@ -3,19 +3,36 @@
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="login-content">
-                    <div class="login-form">
+                    <div class="login-form" [formGroup]="regForm">
                         <h4>Register</h4>
                         <div class="form-group">
                             <label>Email address</label>
-                            <input type="email" class="form-control" placeholder="Email" [(ngModel)]="usuario.email">
+                            <input type="email" class="form-control" formControlName="email" placeholder="Email"
+                                [(ngModel)]="usuario.email">
+                            <div *ngIf="submitted && regForm.controls.email.errors" class="invalid">
+                                <div *ngIf="regForm.controls.email.errors.required">
+                                    Campo vacío
+                                </div>
+                                <div *ngIf="submitted && regForm.controls.email.errors.pattern">
+                                    example@mail.com
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password" [(ngModel)]="usuario.password">
+                            <input type="password" class="form-control" formControlName="password"
+                                placeholder="Password" [(ngModel)]="usuario.password" required>
+                            <div *ngIf="submitted && regForm.controls.password.errors" class="invalid">
+                                <div *ngIf="regForm.controls.password.errors.required">
+                                    Campo vacío
+                                </div>
+                                <div *ngIf="submitted && regForm.controls.password.errors.pattern">
+                                    Debe insertar entre 4 a 8 números
+                                </div>
+                            </div>
                         </div>
-                        <button class="btn btn-primary btn-flat m-b-30 m-t-20"
-                        (click)="registrar()">Register</button>
-        
+                        <button class="btn btn-primary btn-flat m-b-30 m-t-20" (click)="registrar()">Register</button>
+
                         <div class="register-link m-t-15 text-center">
                             <p>Ya tienes cuenta ? <a href="http://localhost:4200/login"> Sign In</a></p>
                         </div>
