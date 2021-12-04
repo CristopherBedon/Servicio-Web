@@ -10,7 +10,7 @@
                 <li>
                     <a class="sidebar-sub-toggle">
                         <i class="ti-home"></i>
-                        Inicio
+                        Crud Empleados
                     </a>
                 </li>
             </ul>
@@ -40,7 +40,7 @@
                         <div class="header-icon" data-toggle="dropdown">
                             <img *ngIf="user.photoURL" src="{{user.photoURL}}" style="border-radius: 100%;" width="30" height="30"
                             class="d-inline-block align-top" alt="">
-                            <span class="user-avatar ml-2">{{user.email}}
+                            <span class="user-avatar ml-2" style="font-size:20px; color: red;">{{user.email}}
                                 <i class="ti-angle-down f-s-10"></i>
                             </span>
                             <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
@@ -66,7 +66,7 @@
 </div>
 <!--END HEADER-->
 
-<h1 class="text-center mt-2" style="margin-left: 10%; color: #17a2b8;">CRUD DE EMPLEADOS</h1>
+<h1 class="text-center mt-2" style="margin-left: 20%; color: #17a2b8;">CRUD DE EMPLEADOS</h1>
 
 <app-create-empleados></app-create-empleados>
 <app-list-empleados></app-list-empleados>
