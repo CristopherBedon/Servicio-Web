@@ -38,7 +38,7 @@ export class CreateEmpleadosComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.titulo = 'Agregar Empleados'
+    this.titulo = 'Agregar Empleados';
     this.esEditar();
   }
 
